@@ -27,7 +27,7 @@ public class GlobalExceptionHandler {
         return build(HttpStatus.BAD_REQUEST, "Missing required parameter", ex.getMessage(), req);
     }
 
-    // 👇 new one goes here
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ApiError> handleValidation(MethodArgumentNotValidException ex, HttpServletRequest req) {
         String message = ex.getBindingResult().getFieldErrors().stream()
